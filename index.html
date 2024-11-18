@@ -6,56 +6,61 @@
     <title>DuckDollar</title>
 </head>
 <body>
-<header>
-    <div>DuckDollar</div>
+<header class="main__header">
+    <div class="logo">DuckDollar</div>
 </header>
-<div>
-    <div>
-        <div>
-            <div>Income</div>
-            <label for="select__income">
+<div class="card flex__wrapper-row">
+    <div class="flex__wrapper-row">
+        <div class="flex__wrapper-col">
+            <h1>Income</h1>
+            <label for="select__income">Select Income</label>
                 <select id="select__income">
-                    <option value="wages">Wages</option>
-                    <option value="cash">Cash</option>
-                    <option value="investments">Investments</option>
+                    <option value="wages" id="wages">Wages</option>
+                    <option value="cash" id="cash">Cash</option>
+                    <option value="investments" id="investments">Investments</option>
                 </select>
-            </label>
         </div>
-        <div>
-            <div>Expenses</div>
-            <label for="select__expenses">
+        <div class="flex__wrapper-col">
+            <h1>Expenses</h1>
+            <label for="select__expenses">Select Expenses</label>
                 <select id="select__expenses">
-                    <option value="food">Food</option>
-                    <option value="housing">Housing</option>
-                    <option value="transport">Transport</option>
-                    <option value="savings">Savings</option>
-                    <option value="misc">Misc</option>
+                    <option value="food" id="food">Food</option>
+                    <option value="housing" id="housing">Housing</option>
+                    <option value="transport" id="transport">Transport</option>
+                    <option value="savings" id="savings">Savings</option>
+                    <option value="misc" id="misc">Misc</option>
                 </select>
-            </label>
         </div>
     </div>
 </div>
 
-<div>
-    <div>Budget Breakdown</div>
-    <div>
+<div class="card">
+    <div class="flex__wrapper-col">
+    <h1>Budget Breakdown</h1>
+    <div class="flex-center">
         <div>Chart</div>
     </div>
-    <div>
-        <div>
-            <div>Income</div>
-            <div>
-                <ul>
+    <div class="flex__wrapper-row">
+        <div class="flex__wrapper-col">
+            <div class="flex__wrapper-row">
+            <div class="square"></div>
+            <h2>Income</h2>
+            </div>
+            <div class="sm__card">
+                <ul class="li__style-none">
                     <li>Wages:</li>
                     <li>Cash:</li>
                     <li>Investments:</li>
                 </ul>
             </div>
         </div>
-        <div>
-            <div>Income</div>
-            <div>
-                <ul>
+        <div class="flex__wrapper-col">
+            <div class="flex__wrapper-row">
+                <div class="square"></div>
+                <h2>Expenses</h2>
+            </div>
+            <div class="sm__card">
+                <ul class="li__style-none">
                     <li>Food:</li>
                     <li>Housing:</li>
                     <li>Transport:</li>
@@ -64,16 +69,20 @@
                 </ul>
             </div>
         </div>
-        <div>
-            <div>Income</div>
-            <div>
-                <ul>
+        <div class="flex__wrapper-col">
+            <div class="flex__wrapper-row">
+                <div class="square"></div>
+                <h2>Totals</h2>
+            </div>
+            <div class="sm__card">
+                <ul class="li__style-none">
                     <li>Total Income:</li>
                     <li>Total Expenses:</li>
                     <li>Budget:</li>
                 </ul>
             </div>
         </div>
+    </div>
     </div>
 </div>
 
