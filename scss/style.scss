@@ -1,0 +1,64 @@
+$primary-color: #272757;
+$background-color-light: #8686AC;
+$background-color-dark: #505081;
+$accent-color: #EAEAEA;
+$income-color: #65558F;
+$expense-color: #E8DEF8;
+$totals-color: #272757;
+$text-black: #000000;
+$text-white: #ffffff;
+$card-background: #ffffff;
+
+@mixin gradient($color1, $color2) {
+  background: radial-gradient($color1, $color2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  @include gradient($background-color-light, $background-color-dark);
+  background-repeat: no-repeat;
+  height: 100vw;
+}
+
+.main__header {
+  background-color: $primary-color;
+  height: 4vw;
+}
+
+.logo {
+  color: $text-white;
+  font-size: 3rem;
+}
+
+.flex {
+  display: flex;
+
+  &__wrapper-row {
+    @extend .flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &.space-even {
+      justify-content: space-evenly;
+    }
+  }
+
+  &__wrapper-col {
+    @extend .flex;
+    flex-direction: column;
+  }
+
+  &-center {
+    @extend .flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
