@@ -27,6 +27,9 @@ body {
 }
 
 .main__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: $primary-color;
   height: 4vw;
 }
@@ -36,29 +39,91 @@ body {
   font-size: 3rem;
 }
 
-.flex {
+.card__wrapper {
   display: flex;
-
-  &__wrapper-row {
-    @extend .flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    &.space-even {
-      justify-content: space-evenly;
-    }
-  }
-
-  &__wrapper-col {
-    @extend .flex;
-    flex-direction: column;
-  }
-
-  &-center {
-    @extend .flex;
-    justify-content: center;
-    align-items: center;
-  }
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
+.card {
+  background-color: white;
+  height: 80vh;
+  width: 40vw;
+  margin-top: 60px;
+  border-radius: 14px;
+}
 
+.wrapper__income-expense {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.flex__wrapper-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.income-expense-col {
+  margin-top: 20px;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.wrapper__income-expense h1 {
+  font-weight: normal;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+.select__wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#expense__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#income__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#select__income {
+  height: 4vh;
+  width: 15vw;
+  border-radius: 8px;
+}
+
+#select__expenses {
+  height: 4vh;
+  width: 15vw;
+  border-radius: 8px;
+}
+
+select:focus {
+  outline: none;
+}
+
+.title-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  width: 15vw;
+  background-color: $accent-color;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+}
