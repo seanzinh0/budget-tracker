@@ -14,6 +14,28 @@ class Budget {
     getIncome() {
         return this.income;
     }
+
+    addExpense(num) {
+        this.expense.push(num);
+    }
+
+    getExpense() {
+        return this.expense;
+    }
+
+    getTotalBudget() {
+        let totalIncome = null;
+        for (let i = 0; i < this.income.length; i++) {
+            totalIncome = totalIncome + this.income[i];
+        }
+        let totalExpense = null;
+        for (let i = 0; i < this.expense.length; i++) {
+            totalExpense = totalExpense = totalExpense + this.expense[i];
+        }
+
+        this.totalBudget = totalIncome - totalExpense;
+        return this.totalBudget;
+    }
 }
 
 const addIncome = document.getElementById("add-income");
