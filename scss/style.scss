@@ -46,6 +46,17 @@ body {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  height: 80vh;
+  width: 40vw;
+  margin-top: 60px;
+  border-radius: 14px;
+}
+
+.card-breakdown {
   background-color: white;
   height: 80vh;
   width: 40vw;
@@ -302,3 +313,27 @@ body {
   outline: none;
   padding-left: 10px;
 }
+
+.calc-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#calc-btn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  border: none;
+  padding: 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+#calc-btn:hover {
+  background-color: #b6b6b6;
+}
+
+
