@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="scss/style.css">
+    <script src="js/script.js" defer></script>
     <title>DuckDollar</title>
 </head>
 <body>
@@ -10,98 +11,79 @@
     <div class="logo">DuckDollar</div>
 </header>
 <div class="card__wrapper">
-<div class="card">
-    <div class="wrapper__income-expense">
-        <div class="flex__wrapper-col income-expense-col">
-            <div class="title-wrap">
-            <h1>Income</h1>
-            </div>
-            <div id="income__wrapper">
+    <div class="card">
+        <div class="wrapper__income-expense">
+            <div class="flex__wrapper-col income-expense-col">
+                <div class="title-wrap">
+                    <h1>Income</h1>
+                </div>
+                <div id="income__wrapper">
 
+                </div>
+                <div class="add-field">
+                    <label for="description-income"></label>
+                    <input type="text" placeholder="Enter Description" id="description-income">
+                    <input type="button" id="add-income" value="Add Income">
+                </div>
             </div>
-            <div class="select__wrapper">
-            <label for="select__income">Add Income Type</label>
-                <select id="select__income">
-                    <option value="default" selected>Select</option>
-                    <option value="wages" id="wages">Wages</option>
-                    <option value="cash" id="cash">Cash</option>
-                    <option value="investments" id="investments">Investments</option>
-                </select>
-            </div>
-        </div>
-        <div class="flex__wrapper-col income-expense-col">
-            <div class="title-wrap">
-            <h1>Expenses</h1>
-            </div>
-            <div id="expense__wrapper">
+            <div class="flex__wrapper-col income-expense-col">
+                <div class="title-wrap">
+                    <h1>Expenses</h1>
+                </div>
+                <div id="expense__wrapper">
 
-            </div>
-            <div class="select__wrapper">
-            <label for="select__expenses">Add Expense Type</label>
-                <select id="select__expenses">
-                    <option value="default" selected>Select</option>
-                    <option value="food" id="food">Food</option>
-                    <option value="housing" id="housing">Housing</option>
-                    <option value="transport" id="transport">Transport</option>
-                    <option value="savings" id="savings">Savings</option>
-                    <option value="misc" id="misc">Misc</option>
-                </select>
+                </div>
+                <div class="add-field">
+                    <label for="description-expense"></label>
+                    <input type="text" placeholder="Enter Description" id="description-expense">
+                    <input type="button" id="add-expense" value="Add Expense">
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="card center">
-    <div class="flex__wrapper-col">
-    <h1>Budget Breakdown</h1>
-    <div class="center">
-        <div>Chart</div>
-    </div>
-    <div class="flex__wrapper-row">
-        <div class="flex__wrapper-col">
-            <div class="flex__wrapper-row">
-            <div class="square"></div>
-            <h2>Income</h2>
-            </div>
-            <div class="sm__card">
-                <ul class="li__style-none">
-                    <li>Wages:</li>
-                    <li>Cash:</li>
-                    <li>Investments:</li>
-                </ul>
+    <div class="card grid__wrapper">
+        <div class="center-title">
+            <div class="title-wrap-budget">
+                <h1>Budget Breakdown</h1>
             </div>
         </div>
-        <div class="flex__wrapper-col">
-            <div class="flex__wrapper-row">
-                <div class="square"></div>
-                <h2>Expenses</h2>
-            </div>
-            <div class="sm__card">
-                <ul class="li__style-none">
-                    <li>Food:</li>
-                    <li>Housing:</li>
-                    <li>Transport:</li>
-                    <li>Savings:</li>
-                    <li>Misc:</li>
-                </ul>
-            </div>
+        <div class="chart__wrapper">
+            <div>Chart</div>
         </div>
-        <div class="flex__wrapper-col">
-            <div class="flex__wrapper-row">
-                <div class="square"></div>
-                <h2>Totals</h2>
+        <div class="flex__wrapper-ul">
+            <div class="col-wrap">
+                <div class="flex__wrapper-income">
+                    <div class="square income-color"></div>
+                    <h2 class="breakdown-text">Income</h2>
+                </div>
+                <div id="income__grid-pos">
+                    <ul class="ul__income">
+                    </ul>
+                </div>
             </div>
-            <div class="sm__card">
-                <ul class="li__style-none">
-                    <li>Total Income:</li>
-                    <li>Total Expenses:</li>
-                    <li>Budget:</li>
-                </ul>
+            <div class="col-wrap">
+                <div class="flex__wrapper-expense">
+                    <div class="square expense-color"></div>
+                    <h2 class="breakdown-text">Expenses</h2>
+                </div>
+                <div id="expense__grid-pos">
+                    <ul class="ul__expense">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-wrap">
+                <div class="flex__wrapper-totals">
+                    <div class="square total-color"></div>
+                    <h2 class="breakdown-text">Totals</h2>
+                </div>
+                <div id="total__grid-pos">
+                    <ul class="ul__total">
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    </div>
-</div>
 </div>
 </body>
 </html>
