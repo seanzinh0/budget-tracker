@@ -22,7 +22,8 @@ addIncome.addEventListener("click", () => {
             <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
         </div>`;
         incomeField.insertAdjacentHTML("beforeend", result);
-
+    document.getElementById("description-income").value = "";
+    document.getElementById("amount-income").value = "";
 });
 
 addExpense.addEventListener("click", () => {
@@ -42,4 +43,6 @@ addExpense.addEventListener("click", () => {
             <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
         </div>`;
         expenseField.insertAdjacentHTML("beforeend", result);
+        document.getElementById("description-expense").value = "";
+        document.getElementById("amount-expense").value = "";
 });
