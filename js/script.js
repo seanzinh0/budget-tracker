@@ -19,7 +19,10 @@ addIncome.addEventListener("click", () => {
         result =
             `<div class="income-input">
             <label for="income-text">${description}</label>
+            <div class="income-wrap">
             <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
+            <button class="delete-btn">Delete</button>
+            </div>
         </div>`;
         incomeField.insertAdjacentHTML("beforeend", result);
     document.getElementById("description-income").value = "";
@@ -38,9 +41,12 @@ addExpense.addEventListener("click", () => {
         return;
     }
         result =
-            `<div class="income-input">
-            <label for="income-text">${description}</label>
-            <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
+            `<div class="expense-input">
+            <label for="expense-text">${description}</label>
+            <div class="expense-wrap">
+            <input id="expense-text" type="text" readonly value="$${numAmount.toFixed(2)}">
+            <button class="delete-btn">Delete</button>
+            </div>
         </div>`;
         expenseField.insertAdjacentHTML("beforeend", result);
         document.getElementById("description-expense").value = "";
