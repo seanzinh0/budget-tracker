@@ -87,12 +87,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 10px;
 }
 
 #income__wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 10px;
 }
 
 .title-wrap {
@@ -105,6 +107,7 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .title-wrap-budget h1 {
