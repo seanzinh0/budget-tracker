@@ -23,7 +23,7 @@ $card-background: #ffffff;
 body {
   @include gradient($background-color-light, $background-color-dark);
   background-repeat: no-repeat;
-  height: 100vw;
+  height: 60vw;
 }
 
 .main__header {
@@ -385,6 +385,7 @@ body {
 
 .delete-btn:hover {
   background-color: #fd5b5b;
+  color: white;
 }
 
 .calc-btn-wrap {
