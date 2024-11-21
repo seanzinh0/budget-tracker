@@ -1,9 +1,27 @@
 "use strict";
 
+class Budget {
+    constructor(income, expense, budget) {
+        this.income = income || [];
+        this.expense = expense || [];
+        this.budget = budget;
+    }
+
+    addIncome(num) {
+        this.income.push(num);
+    }
+
+    getIncome() {
+        return this.income;
+    }
+}
+
 const addIncome = document.getElementById("add-income");
 const addExpense = document.getElementById("add-expense");
 const incomeField = document.getElementById("income__wrapper");
 const expenseField = document.getElementById("expense__wrapper");
+
+const budget = new Budget();
 
 addIncome.addEventListener("click", () => {
     let description = document.getElementById("description-income").value;
@@ -56,11 +74,3 @@ addExpense.addEventListener("click", () => {
         document.getElementById("description-expense").value = "";
         document.getElementById("amount-expense").value = "";
 });
-
-class Budget {
-    constructor(income, expense, budget) {
-        this.income = income || [];
-        this.expense = expense || [];
-        this.budget = budget;
-    }
-}
