@@ -7,28 +7,39 @@ const expenseField = document.getElementById("expense__wrapper");
 
 addIncome.addEventListener("click", () => {
     let description = document.getElementById("description-income").value;
+    let amount = document.getElementById("amount-income").value;
     let result = "";
     if (description.trim() === "") {
-    }else {
+        return;
+    }
+    let numAmount = Number(amount);
+    if (isNaN(numAmount) || numAmount <= 0) {
+        return;
+    }
         result =
             `<div class="income-input">
             <label for="income-text">${description}</label>
-            <input id="income-text" type="text" placeholder="Enter Amount">
+            <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
         </div>`;
         incomeField.insertAdjacentHTML("beforeend", result);
-    }
+
 });
 
 addExpense.addEventListener("click", () => {
     let description = document.getElementById("description-expense").value;
+    let amount = document.getElementById("amount-expense").value;
     let result = "";
     if (description.trim() === "") {
-    }else {
+        return;
+    }
+    let numAmount = Number(amount);
+    if (isNaN(numAmount) || numAmount <= 0) {
+        return;
+    }
         result =
             `<div class="income-input">
             <label for="income-text">${description}</label>
-            <input id="income-text" type="text" placeholder="Enter Amount">
+            <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
         </div>`;
         expenseField.insertAdjacentHTML("beforeend", result);
-    }
 });
