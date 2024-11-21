@@ -64,19 +64,3 @@ class Budget {
         this.budget = budget;
     }
 }
-
-class Income extends Budget {
-    constructor(income, incomeAmount,  description) {
-        super(income);
-        this.incomeAmount = incomeAmount;
-        this.description = description;
-    }
-}
-
-class Expense extends Budget {
-    constructor(expense, expenseAmount, description) {
-        super(expense);
-        this.expenseAmount = expenseAmount;
-        this.description = description;
-    }
-}
