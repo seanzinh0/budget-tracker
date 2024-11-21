@@ -10,10 +10,12 @@ addIncome.addEventListener("click", () => {
     let amount = document.getElementById("amount-income").value;
     let result = "";
     if (description.trim() === "") {
+        alert("Please input a description");
         return;
     }
     let numAmount = Number(amount);
     if (isNaN(numAmount) || numAmount <= 0) {
+        alert("Please input a number greater than 0");
         return;
     }
         result =
@@ -34,10 +36,12 @@ addExpense.addEventListener("click", () => {
     let amount = document.getElementById("amount-expense").value;
     let result = "";
     if (description.trim() === "") {
+        alert("Please input a description");
         return;
     }
     let numAmount = Number(amount);
     if (isNaN(numAmount) || numAmount <= 0) {
+        alert("Please input a number greater than 0");
         return;
     }
         result =
@@ -52,3 +56,27 @@ addExpense.addEventListener("click", () => {
         document.getElementById("description-expense").value = "";
         document.getElementById("amount-expense").value = "";
 });
+
+class Budget {
+    constructor(income, expense, budget) {
+        this.income = income || [];
+        this.expense = expense || [];
+        this.budget = budget;
+    }
+}
+
+class Income extends Budget {
+    constructor(income, incomeAmount,  description) {
+        super(income);
+        this.incomeAmount = incomeAmount;
+        this.description = description;
+    }
+}
+
+class Expense extends Budget {
+    constructor(expense, expenseAmount, description) {
+        super(expense);
+        this.expenseAmount = expenseAmount;
+        this.description = description;
+    }
+}
