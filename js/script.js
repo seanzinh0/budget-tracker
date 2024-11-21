@@ -1,10 +1,10 @@
 "use strict";
 
 class Budget {
-    constructor(income, expense, budget) {
+    constructor(income, expense, totalBudget) {
         this.income = income || [];
         this.expense = expense || [];
-        this.budget = budget;
+        this.totalBudget = totalBudget;
     }
 
     addIncome(num) {
