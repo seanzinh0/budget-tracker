@@ -86,7 +86,7 @@ addIncome.addEventListener("click", () => {
             <label for="income-text">${description}</label>
             <div class="income-wrap">
             <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
-            <button class="delete-btn" onclick="deleteIncomeInput(this)">Delete</button>
+            <button class="delete-btn" onclick="deleteIncomeInput(this)">X</button>
             </div>
         </div>`;
     incomeField.insertAdjacentHTML("beforeend", result);
@@ -132,7 +132,7 @@ addExpense.addEventListener("click", () => {
                 <label for="expense-text">${description}</label>
                 <div class="expense-wrap">
                    <input id="expense-text" type="text" readonly value="$${numAmount.toFixed(2)}">
-                   <button class="delete-btn" onclick="deleteExpenseInput(this)">Delete</button>
+                   <button class="delete-btn" onclick="deleteExpenseInput(this)">X</button>
                 </div>
             </div`;
     expenseField.insertAdjacentHTML("beforeend", result);
