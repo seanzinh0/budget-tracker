@@ -9,6 +9,7 @@ class Budget {
 
     addIncome(incomeObj) {
         this.income.push(incomeObj);
+        this.updateTotalBudget();
     }
 
     getIncome() {
@@ -17,6 +18,7 @@ class Budget {
 
     addExpense(expenseObj) {
         this.expense.push(expenseObj);
+        this.updateTotalBudget();
         console.log(this.expense);
     }
 
@@ -56,7 +58,8 @@ function deleteIncomeInput(e) {
     const amount = Number(incomeDiv.querySelector('input').value.replace('$', ''));
     const description = incomeDiv.querySelector('label').innerText;
     incomeDiv.remove();
-    budget.income = budget.income.filter(item => item.amount !== amount || item.description !== description);
+    budget.income = budget.income.filter(item => !(item.amount === amount && item.description === description));
+    budget.updateTotalBudget();
     console.log(budget.income);
 }
 
@@ -86,7 +89,9 @@ addIncome.addEventListener("click", () => {
     document.getElementById("amount-income").value = "";
     const incomeObj = {amount: numAmount, description: description};
     budget.addIncome(incomeObj);
+    budget.updateTotalBudget();
     console.log(budget.getIncome());
+    updateBudgetBreakdown();
 });
 
 function deleteExpenseInput(e) {
@@ -94,7 +99,8 @@ function deleteExpenseInput(e) {
     const amount = Number(expenseDiv.querySelector('input').value.replace('$', ''));
     const description = expenseDiv.querySelector('label').innerText;
     expenseDiv.remove();
-    budget.expense = budget.expense.filter(item => item.amount !== amount || item.description !== description);
+    budget.expense = budget.expense.filter(item => !(item.amount === amount && item.description === description));
+    budget.updateTotalBudget();
     console.log(budget.expense);
 }
 
@@ -124,9 +130,29 @@ addExpense.addEventListener("click", () => {
     document.getElementById("amount-expense").value = "";
     const expenseObj = {amount: numAmount, description: description};
     budget.addExpense(expenseObj);
+    budget.updateTotalBudget();
     console.log(budget.getExpense());
-
+    console.log(budget.getTotalExpense());
+    console.log(budget.getTotalBudget());
+    updateBudgetBreakdown();
 });
+
+
+function updateBudgetBreakdown() {
+    const totalIncome = budget.getTotalIncome();
+    const totalExpense = budget.getTotalExpense();
+    const totalBudget = budget.getTotalBudget();
+    const liTotalIncome = document.getElementById("total-income");
+    const liTotalExpense = document.getElementById("total-expenses");
+    const liTotalBudget = document.getElementById("total-budget");
+
+    liTotalIncome.innerText = "Total Income: $" + totalIncome.toFixed(2);
+    liTotalExpense.innerText = "Total Expense: $" + totalExpense.toFixed(2);
+    liTotalBudget.innerText = "Total Budget: $" + totalBudget.toFixed(2);
+
+}
+
+
 
 // const updateDebugInfo = () => {
 //     document.querySelector(".debug-data").innerHTML = JSON.stringify(budget.getExpense(), null, 2)
