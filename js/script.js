@@ -236,6 +236,11 @@ function createDonutChart(){
                             label: function (tooltipItem) {
                                 return tooltipItem.label + ': $' + tooltipItem.raw.toFixed(2);
                             }
+                        },
+                        bodyFont: {
+                            size: 16,
+                            family: "Arial",
+                            style: "normal"
                         }
                     }
                 }
