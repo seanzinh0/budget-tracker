@@ -61,6 +61,7 @@ function deleteIncomeInput(e) {
     budget.income = budget.income.filter(item => !(item.amount === amount && item.description === description));
     budget.updateTotalBudget();
     console.log(budget.income);
+    updateTotalsBreakdown();
 }
 
 addIncome.addEventListener("click", () => {
@@ -91,7 +92,7 @@ addIncome.addEventListener("click", () => {
     budget.addIncome(incomeObj);
     budget.updateTotalBudget();
     console.log(budget.getIncome());
-    updateBudgetBreakdown();
+    updateTotalsBreakdown();
 });
 
 function deleteExpenseInput(e) {
@@ -102,6 +103,7 @@ function deleteExpenseInput(e) {
     budget.expense = budget.expense.filter(item => !(item.amount === amount && item.description === description));
     budget.updateTotalBudget();
     console.log(budget.expense);
+    updateTotalsBreakdown();
 }
 
 addExpense.addEventListener("click", () => {
@@ -134,11 +136,11 @@ addExpense.addEventListener("click", () => {
     console.log(budget.getExpense());
     console.log(budget.getTotalExpense());
     console.log(budget.getTotalBudget());
-    updateBudgetBreakdown();
+    updateTotalsBreakdown();
 });
 
 
-function updateBudgetBreakdown() {
+function updateTotalsBreakdown() {
     const totalIncome = budget.getTotalIncome();
     const totalExpense = budget.getTotalExpense();
     const totalBudget = budget.getTotalBudget();
@@ -149,7 +151,6 @@ function updateBudgetBreakdown() {
     liTotalIncome.innerText = "Total Income: $" + totalIncome.toFixed(2);
     liTotalExpense.innerText = "Total Expense: $" + totalExpense.toFixed(2);
     liTotalBudget.innerText = "Total Budget: $" + totalBudget.toFixed(2);
-
 }
 
 
