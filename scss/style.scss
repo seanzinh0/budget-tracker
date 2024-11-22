@@ -23,8 +23,7 @@ $card-background: #ffffff;
 body {
   @include gradient($background-color-light, $background-color-dark);
   background-repeat: no-repeat;
-  min-height: 60vw;
-  height:100%;
+  height: 60vw;
 }
 
 .main__header {

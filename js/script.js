@@ -2,8 +2,8 @@
 
 class Budget {
     constructor(income, expense, totalBudget) {
-        this.income = [];
-        this.expense = [];
+        this.income = income || [];
+        this.expense = expense || [];
         this.totalBudget = totalBudget;
     }
 
@@ -17,7 +17,6 @@ class Budget {
 
     addExpense(num) {
         this.expense.push(num);
-        console.log(this.expense);
     }
 
     getExpense() {
@@ -46,10 +45,6 @@ const expenseField = document.getElementById("expense__wrapper");
 
 const budget = new Budget();
 
-function deleteIncomeInput(e) {
-    e.closest(".income-input").remove();
-}
-
 addIncome.addEventListener("click", () => {
     let description = document.getElementById("description-income").value;
     let amount = document.getElementById("amount-income").value;
@@ -63,25 +58,18 @@ addIncome.addEventListener("click", () => {
         alert("Please input a number greater than 0");
         return;
     }
-
         result =
             `<div class="income-input">
             <label for="income-text">${description}</label>
             <div class="income-wrap">
             <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
-            <button class="delete-btn" onclick="deleteIncomeInput(this)">Delete</button>
+            <button class="delete-btn">Delete</button>
             </div>
         </div>`;
         incomeField.insertAdjacentHTML("beforeend", result);
     document.getElementById("description-income").value = "";
     document.getElementById("amount-income").value = "";
-    budget.addIncome({amount: numAmount, description: description});
-    updateDebugInfo()
 });
-
-function deleteExpenseInput(e) {
-    e.closest(".income-input").remove();
-}
 
 addExpense.addEventListener("click", () => {
     let description = document.getElementById("description-expense").value;
@@ -98,21 +86,13 @@ addExpense.addEventListener("click", () => {
     }
         result =
             `<div class="expense-input">
-                <label for="expense-text">${description}</label>
-                <div class="expense-wrap">
-                   <input id="expense-text" type="text" readonly value="$${numAmount.toFixed(2)}">
-                   <button class="delete-btn" onclick="deleteExpenseInput(this)">Delete</button>
-                </div>
-            </div`;
+            <label for="expense-text">${description}</label>
+            <div class="expense-wrap">
+            <input id="expense-text" type="text" readonly value="$${numAmount.toFixed(2)}">
+            <button class="delete-btn">Delete</button>
+            </div>
+        </div>`;
         expenseField.insertAdjacentHTML("beforeend", result);
         document.getElementById("description-expense").value = "";
         document.getElementById("amount-expense").value = "";
-    budget.addExpense({amount: numAmount, description: description});
-    updateDebugInfo()
 });
-
-const updateDebugInfo = () => {
-    document.querySelector(".debug-data").innerHTML = JSON.stringify(budget.getExpense(), null, 2)
-    document.querySelector(".debug-data2").innerHTML = JSON.stringify(budget.getIncome(), null, 2)
-}
-
