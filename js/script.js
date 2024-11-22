@@ -203,7 +203,7 @@ function createDonutChart(){
     if (totalIncome === 0 && totalExpense === 0) {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         ctx.fillStyle = "#000000";
-        ctx.font = "20px Arial";
+        ctx.font = "22px Arial";
         ctx.fillText("No Data Available", ctx.canvas.width / 2-80, ctx.canvas.height / 2); // Centered message
     }else {
         window.donutChart = new Chart(ctx, {
