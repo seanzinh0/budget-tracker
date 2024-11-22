@@ -1,22 +1,22 @@
 "use strict";
 
 class Budget {
-    constructor(income, expense, totalBudget) {
+    constructor() {
         this.income = [];
         this.expense = [];
-        this.totalBudget = totalBudget;
+        this.totalBudget = 0;
     }
 
-    addIncome(num) {
-        this.income.push(num);
+    addIncome(incomeObj) {
+        this.income.push(incomeObj);
     }
 
     getIncome() {
         return this.income;
     }
 
-    addExpense(num) {
-        this.expense.push(num);
+    addExpense(expenseObj) {
+        this.expense.push(expenseObj);
         console.log(this.expense);
     }
 
@@ -24,19 +24,24 @@ class Budget {
         return this.expense;
     }
 
-    getTotalBudget() {
-        let totalIncome = null;
-        for (let i = 0; i < this.income.length; i++) {
-            totalIncome = totalIncome + this.income[i];
-        }
-        let totalExpense = null;
-        for (let i = 0; i < this.expense.length; i++) {
-            totalExpense = totalExpense = totalExpense + this.expense[i];
-        }
-
+    updateTotalBudget() {
+        const totalIncome = this.income.reduce((sum, val) => sum + val.amount, 0);
+        const totalExpense = this.expense.reduce((sum, val) => sum + val.amount, 0);
         this.totalBudget = totalIncome - totalExpense;
+    }
+
+    getTotalBudget() {
         return this.totalBudget;
     }
+
+    getTotalIncome() {
+        return this.income.reduce((sum, val) => sum + val.amount, 0);
+    }
+
+    getTotalExpense() {
+        return this.expense.reduce((sum, val) => sum + val.amount, 0);
+    }
+
 }
 
 const addIncome = document.getElementById("add-income");
@@ -47,7 +52,12 @@ const expenseField = document.getElementById("expense__wrapper");
 const budget = new Budget();
 
 function deleteIncomeInput(e) {
-    e.closest(".income-input").remove();
+    const incomeDiv = e.closest(".income-input");
+    const amount = Number(incomeDiv.querySelector('input').value.replace('$', ''));
+    const description = incomeDiv.querySelector('label').innerText;
+    incomeDiv.remove();
+    budget.income = budget.income.filter(item => item.amount !== amount || item.description !== description);
+    console.log(budget.income);
 }
 
 addIncome.addEventListener("click", () => {
@@ -63,24 +73,29 @@ addIncome.addEventListener("click", () => {
         alert("Please input a number greater than 0");
         return;
     }
-
-        result =
-            `<div class="income-input">
+    result =
+        `<div class="income-input">
             <label for="income-text">${description}</label>
             <div class="income-wrap">
             <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
             <button class="delete-btn" onclick="deleteIncomeInput(this)">Delete</button>
             </div>
         </div>`;
-        incomeField.insertAdjacentHTML("beforeend", result);
+    incomeField.insertAdjacentHTML("beforeend", result);
     document.getElementById("description-income").value = "";
     document.getElementById("amount-income").value = "";
-    budget.addIncome({amount: numAmount, description: description});
-    updateDebugInfo()
+    const incomeObj = {amount: numAmount, description: description};
+    budget.addIncome(incomeObj);
+    console.log(budget.getIncome());
 });
 
 function deleteExpenseInput(e) {
-    e.closest(".income-input").remove();
+    const expenseDiv = e.closest(".expense-input");
+    const amount = Number(expenseDiv.querySelector('input').value.replace('$', ''));
+    const description = expenseDiv.querySelector('label').innerText;
+    expenseDiv.remove();
+    budget.expense = budget.expense.filter(item => item.amount !== amount || item.description !== description);
+    console.log(budget.expense);
 }
 
 addExpense.addEventListener("click", () => {
@@ -96,23 +111,25 @@ addExpense.addEventListener("click", () => {
         alert("Please input a number greater than 0");
         return;
     }
-        result =
-            `<div class="expense-input">
+    result =
+        `<div class="expense-input">
                 <label for="expense-text">${description}</label>
                 <div class="expense-wrap">
                    <input id="expense-text" type="text" readonly value="$${numAmount.toFixed(2)}">
                    <button class="delete-btn" onclick="deleteExpenseInput(this)">Delete</button>
                 </div>
             </div`;
-        expenseField.insertAdjacentHTML("beforeend", result);
-        document.getElementById("description-expense").value = "";
-        document.getElementById("amount-expense").value = "";
-    budget.addExpense({amount: numAmount, description: description});
-    updateDebugInfo()
+    expenseField.insertAdjacentHTML("beforeend", result);
+    document.getElementById("description-expense").value = "";
+    document.getElementById("amount-expense").value = "";
+    const expenseObj = {amount: numAmount, description: description};
+    budget.addExpense(expenseObj);
+    console.log(budget.getExpense());
+
 });
 
-const updateDebugInfo = () => {
-    document.querySelector(".debug-data").innerHTML = JSON.stringify(budget.getExpense(), null, 2)
-    document.querySelector(".debug-data2").innerHTML = JSON.stringify(budget.getIncome(), null, 2)
-}
+// const updateDebugInfo = () => {
+//     document.querySelector(".debug-data").innerHTML = JSON.stringify(budget.getExpense(), null, 2)
+//     document.querySelector(".debug-data2").innerHTML = JSON.stringify(budget.getIncome(), null, 2)
+// }
 
