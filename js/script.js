@@ -50,6 +50,8 @@ const addIncome = document.getElementById("add-income");
 const addExpense = document.getElementById("add-expense");
 const incomeField = document.getElementById("income__wrapper");
 const expenseField = document.getElementById("expense__wrapper");
+const ulIncome = document.querySelector(".ul__income");
+const ulExpense = document.querySelector(".ul__expense");
 
 const budget = new Budget();
 
@@ -62,6 +64,7 @@ function deleteIncomeInput(e) {
     budget.updateTotalBudget();
     console.log(budget.income);
     updateTotalsBreakdown();
+    updateIncomeUI();
 }
 
 addIncome.addEventListener("click", () => {
@@ -93,6 +96,7 @@ addIncome.addEventListener("click", () => {
     budget.updateTotalBudget();
     console.log(budget.getIncome());
     updateTotalsBreakdown();
+    updateIncomeUI();
 });
 
 function deleteExpenseInput(e) {
@@ -104,6 +108,7 @@ function deleteExpenseInput(e) {
     budget.updateTotalBudget();
     console.log(budget.expense);
     updateTotalsBreakdown();
+    updateExpenseUI();
 }
 
 addExpense.addEventListener("click", () => {
@@ -137,6 +142,7 @@ addExpense.addEventListener("click", () => {
     console.log(budget.getTotalExpense());
     console.log(budget.getTotalBudget());
     updateTotalsBreakdown();
+    updateExpenseUI();
 });
 
 function updateTotalsBreakdown() {
@@ -150,6 +156,36 @@ function updateTotalsBreakdown() {
     liTotalIncome.innerText = "Total Income: $" + totalIncome.toFixed(2);
     liTotalExpenses.innerText = "Total Expense: $" + totalExpense.toFixed(2);
     liTotalBudget.innerText = "Total Budget: $" + totalBudget.toFixed(2);
+}
+
+function updateIncomeUI(){
+    ulIncome.innerHTML = "";
+    const totalIncome = budget.getTotalIncome();
+    budget.getIncome().forEach(income => {
+        let percentage;
+        if (totalIncome > 0) {
+            percentage = (income.amount / totalIncome * 100).toFixed(2);
+        } else {
+            percentage = 0; // Set percentage to 0 if total expense is 0
+        }
+        const result = `<li>${percentage}% - ${income.description}: $${income.amount.toFixed(2)}</li>`;
+        ulIncome.insertAdjacentHTML("beforeend", result);
+    });
+}
+
+function updateExpenseUI() {
+    ulExpense.innerHTML = ""
+    const totalExpense = budget.getTotalExpense();
+    budget.getExpense().forEach(expense => {
+        let percentage;
+        if (totalExpense > 0) {
+            percentage = (expense.amount / totalExpense * 100).toFixed(2);
+        } else {
+            percentage = 0;
+        }
+        const result = `<li>${percentage}% - ${expense.description}: $${expense.amount.toFixed(2)}</li>`;
+        ulExpense.insertAdjacentHTML("beforeend", result);
+    });
 }
 
 
