@@ -127,6 +127,9 @@ body {
 
 .chart__wrapper {
   grid-row: 2;
+  display: flex;
+  margin-top: 50px;
+  height: 350px;
 }
 
 .flex__wrapper-row {
@@ -245,19 +248,6 @@ body {
 .breakdown-text {
   font-weight: normal;
   font-size: 1.25rem;
-}
-
-.square {
-  height: 40px;
-  width: 40px;
-}
-
-.income-color {
-  background-color: #65558F;
-}
-
-.expense-color {
-  background-color: #E8DEF8;
 }
 
 #income__grid-pos {

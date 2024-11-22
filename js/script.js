@@ -65,6 +65,7 @@ function deleteIncomeInput(e) {
     console.log(budget.income);
     updateTotalsBreakdown();
     updateIncomeUI();
+    createDonutChart();
 }
 
 addIncome.addEventListener("click", () => {
@@ -97,6 +98,7 @@ addIncome.addEventListener("click", () => {
     console.log(budget.getIncome());
     updateTotalsBreakdown();
     updateIncomeUI();
+    createDonutChart();
 });
 
 function deleteExpenseInput(e) {
@@ -109,6 +111,7 @@ function deleteExpenseInput(e) {
     console.log(budget.expense);
     updateTotalsBreakdown();
     updateExpenseUI();
+    createDonutChart();
 }
 
 addExpense.addEventListener("click", () => {
@@ -143,6 +146,7 @@ addExpense.addEventListener("click", () => {
     console.log(budget.getTotalBudget());
     updateTotalsBreakdown();
     updateExpenseUI();
+    createDonutChart();
 });
 
 function updateTotalsBreakdown() {
@@ -187,6 +191,61 @@ function updateExpenseUI() {
         ulExpense.insertAdjacentHTML("beforeend", result);
     });
 }
+
+
+function createDonutChart(){
+    const totalIncome = budget.getTotalIncome();
+    const totalExpense = budget.getTotalExpense();
+    const ctx = document.getElementById("donut-chart").getContext("2d");
+    if (window.donutChart) {
+        window.donutChart.destroy();
+    }
+    if (totalIncome === 0 && totalExpense === 0) {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.fillStyle = "#000000";
+        ctx.font = "20px Arial";
+        ctx.fillText("No Data Available", ctx.canvas.width / 2-80, ctx.canvas.height / 2); // Centered message
+    }else {
+        window.donutChart = new Chart(ctx, {
+            type: "doughnut",
+            data: {
+                labels: ["Total Income", "Total Expenses"],
+                datasets: [{
+                    data: [totalIncome, totalExpense],
+                    backgroundColor: ["#65558F"/*income color*/, "#E8DEF8"/*expense color*/],
+                    borderColor: ["#65558F", "#E8DEF8"],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: "80%",
+                plugins: {
+                    legend: {
+                        position: "bottom",
+                        labels: {
+                            font: {
+                                size: 16,
+                                family: "Arial",
+                                style: "normal"
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': $' + tooltipItem.raw.toFixed(2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+createDonutChart();
+
 
 
 

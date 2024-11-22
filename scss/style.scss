@@ -141,6 +141,9 @@ body {
 
 .chart__wrapper {
   grid-row: 2;
+  display: flex;
+  margin-top: 50px;
+  height: 350px;
 }
 
 .flex__wrapper-row {
@@ -259,20 +262,6 @@ body {
 .breakdown-text {
   font-weight: normal;
   font-size: 1.25rem;
-}
-
-.square {
-  height: 40px;
-  width: 40px;
-
-}
-
-.income-color {
-  background-color: $income-color;
-}
-
-.expense-color {
-  background-color: $expense-color;
 }
 
 #income__grid-pos {
@@ -417,4 +406,5 @@ body {
   list-style: none;
   font-size: 1rem;
 }
+
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="scss/style.css">
     <script src="js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>DuckDollar</title>
 </head>
 <body>
@@ -57,12 +58,11 @@
             </div>
         </div>
         <div class="chart__wrapper">
-            <div>Chart</div>
+            <canvas id="donut-chart" width="200px" height="200px"></canvas>
         </div>
         <div class="flex__wrapper-ul">
             <div class="col-wrap">
                 <div class="flex__wrapper-income">
-                    <div class="square income-color"></div>
                     <h2 class="breakdown-text">Income</h2>
                 </div>
                 <div id="income__grid-pos">
@@ -72,7 +72,6 @@
             </div>
             <div class="col-wrap">
                 <div class="flex__wrapper-expense">
-                    <div class="square expense-color"></div>
                     <h2 class="breakdown-text">Expenses</h2>
                 </div>
                 <div id="expense__grid-pos">
