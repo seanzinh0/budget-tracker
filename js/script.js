@@ -245,12 +245,3 @@ function createDonutChart(){
 }
 
 createDonutChart();
-
-
-
-
-// const updateDebugInfo = () => {
-//     document.querySelector(".debug-data").innerHTML = JSON.stringify(budget.getExpense(), null, 2)
-//     document.querySelector(".debug-data2").innerHTML = JSON.stringify(budget.getIncome(), null, 2)
-// }
-
