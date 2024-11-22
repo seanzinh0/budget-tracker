@@ -139,17 +139,16 @@ addExpense.addEventListener("click", () => {
     updateTotalsBreakdown();
 });
 
-
 function updateTotalsBreakdown() {
     const totalIncome = budget.getTotalIncome();
     const totalExpense = budget.getTotalExpense();
     const totalBudget = budget.getTotalBudget();
     const liTotalIncome = document.getElementById("total-income");
-    const liTotalExpense = document.getElementById("total-expenses");
+    const liTotalExpenses = document.getElementById("total-expenses");
     const liTotalBudget = document.getElementById("total-budget");
 
     liTotalIncome.innerText = "Total Income: $" + totalIncome.toFixed(2);
-    liTotalExpense.innerText = "Total Expense: $" + totalExpense.toFixed(2);
+    liTotalExpenses.innerText = "Total Expense: $" + totalExpense.toFixed(2);
     liTotalBudget.innerText = "Total Budget: $" + totalBudget.toFixed(2);
 }
 
