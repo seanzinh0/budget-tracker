@@ -341,13 +341,14 @@ body {
 .delete-btn {
   background-color: #EAEAEA;
   width: 3vw;
-  padding: 10px;
+  padding: 10px 0;
   border: solid #EAEAEA 1px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   font-size: 1rem;
   display: flex;
   justify-content: center;
+  height: 40px;
 }
 
 .delete-btn:hover {
