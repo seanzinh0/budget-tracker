@@ -393,4 +393,119 @@ body {
   font-size: 1rem;
 }
 
+@media screen and (max-width: 800px) {
+  .main__header {
+    height: 10vh;
+  }
+  .logo {
+    font-size: 2rem;
+  }
+  .card__wrapper {
+    flex-direction: column-reverse;
+  }
+  .card-breakdown {
+    width: 90vw;
+    margin: 5vw auto;
+    height: 100%;
+  }
+  .grid__wrapper {
+    grid-template-rows: 60px 28vh 1fr;
+  }
+  .title-wrap-budget {
+    width: 60vw;
+  }
+  .title-wrap-budget h1 {
+    font-size: 1.25rem;
+  }
+  .breakdown-text {
+    font-size: 1.1rem;
+  }
+  .card {
+    width: 90vw;
+    margin: 5vw auto;
+  }
+  .chart__wrapper {
+    margin-top: 20px;
+    height: 25vh;
+    width: 90vw;
+  }
+  .flex__wrapper-ul {
+    flex-direction: column;
+  }
+  #income__grid-pos {
+    height: auto;
+    width: 80vw;
+    margin: auto;
+  }
+  #expense__grid-pos {
+    height: auto;
+    width: 80vw;
+    margin: auto;
+  }
+  #total__grid-pos {
+    height: 12vh;
+    width: 80vw;
+    margin: auto;
+  }
+  .ul__income {
+    margin-top: 5px;
+    gap: 0;
+  }
+  .ul__expense {
+    margin-top: 5px;
+    gap: 0;
+  }
+  .ul__total {
+    margin-top: auto;
+    margin-bottom: auto;
+    gap: 5px;
+  }
+  .title-wrap {
+    width: 40vw;
+  }
+  .title-wrap h1 {
+    font-size: 1.25rem;
+  }
+  .add-field {
+    width: 40vw;
+  }
+  #income-text {
+    width: 30vw;
+  }
+  #expense-text {
+    width: 30vw;
+  }
+  .delete-btn {
+    width: 10vw;
+  }
+  #description-income {
+    padding-left: 5px;
+    font-size: 0.78rem;
+  }
+  #amount-income {
+    padding-left: 5px;
+    font-size: 0.78rem;
+  }
+  #description-income::placeholder {
+    font-size: 0.78rem;
+  }
+  #amount-income::placeholder {
+    font-size: 0.78rem;
+  }
+  #description-expense {
+    padding-left: 5px;
+    font-size: 0.78rem;
+  }
+  #amount-expense {
+    padding-left: 5px;
+    font-size: 0.78rem;
+  }
+  #description-expense::placeholder {
+    font-size: 0.78rem;
+  }
+  #amount-expense::placeholder {
+    font-size: 0.78rem;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
