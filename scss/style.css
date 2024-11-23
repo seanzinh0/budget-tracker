@@ -33,18 +33,20 @@ body {
 
 .card {
   background-color: white;
-  height: 80vh;
-  width: 45vw;
+  height: auto;
+  width: 46vw;
   margin-top: 60px;
   border-radius: 14px;
+  margin-bottom: 60px;
 }
 
 .card-breakdown {
   background-color: white;
-  height: 80vh;
-  width: 45vw;
+  height: auto;
+  width: 46vw;
   margin-top: 60px;
   border-radius: 14px;
+  margin-bottom: 60px;
 }
 
 .wrapper__income-expense {
@@ -148,6 +150,7 @@ body {
 
 .input-wrap {
   display: flex;
+  height: 40px;
 }
 
 #add-expense {
@@ -252,7 +255,7 @@ body {
 
 #income__grid-pos {
   grid-row: 4;
-  height: 28vh;
+  height: 30vh;
   width: 13vw;
   background-color: #EAEAEA;
   margin-top: 10px;
@@ -263,7 +266,7 @@ body {
 
 #expense__grid-pos {
   grid-row: 4;
-  height: 28vh;
+  height: 30vh;
   width: 13vw;
   background-color: #EAEAEA;
   margin-top: 10px;
@@ -274,7 +277,7 @@ body {
 
 #total__grid-pos {
   grid-row: 4;
-  height: 28vh;
+  height: 30vh;
   width: 13vw;
   background-color: #EAEAEA;
   margin-top: 10px;
@@ -283,7 +286,7 @@ body {
 }
 
 .flex__wrapper-ul {
-  grid-row: 4;
+  grid-row: 3;
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 20px;
@@ -395,9 +398,9 @@ body {
   font-size: 1rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 799px) {
   .main__header {
-    height: 10vh;
+    height: 6vh;
   }
   .logo {
     font-size: 2rem;
@@ -515,6 +518,140 @@ body {
   }
   #amount-expense::placeholder {
     font-size: 0.75rem;
+  }
+  .add-field {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 799px) and (max-width: 1399px) {
+  .main__header {
+    height: 8vh;
+  }
+  .logo {
+    font-size: 2.25rem;
+  }
+  .chart__wrapper {
+    margin-top: 20px;
+    height: 30vh;
+  }
+  .title-wrap {
+    width: 20vw;
+  }
+  .title-wrap h1 {
+    font-size: 1.25rem;
+  }
+  #description-income::placeholder {
+    font-size: 0.75rem;
+  }
+  #amount-income::placeholder {
+    font-size: 0.75rem;
+  }
+  #description-expense {
+    padding-left: 5px;
+    font-size: 0.75rem;
+  }
+  #amount-expense {
+    padding-left: 5px;
+    font-size: 0.75rem;
+  }
+  #description-expense::placeholder {
+    font-size: 0.75rem;
+  }
+  #amount-expense::placeholder {
+    font-size: 0.75rem;
+  }
+  .add-field {
+    width: 20vw;
+  }
+  .input-wrap {
+    height: 30px;
+  }
+  .income-wrap {
+    width: 20vw;
+  }
+  .expense-wrap {
+    width: 20vw;
+  }
+  label {
+    font-size: 0.8rem;
+  }
+  #income-text {
+    width: 15vw;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  #expense-text {
+    width: 15vw;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  .delete-btn {
+    width: 5vw;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  #add-income {
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  #add-expense {
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  .title-wrap-budget {
+    width: 40vw;
+  }
+  .title-wrap-budget h1 {
+    font-size: 1.25rem;
+  }
+  .flex__wrapper-ul {
+    flex-direction: column;
+    grid-row: 3;
+  }
+  #income__grid-pos {
+    height: auto;
+    width: 40vw;
+    margin: auto;
+  }
+  #expense__grid-pos {
+    height: auto;
+    width: 40vw;
+    margin: auto;
+  }
+  #total__grid-pos {
+    height: 80px;
+    width: 40vw;
+    margin: auto;
+  }
+  .ul__income {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    gap: 0;
+  }
+  .ul__income li {
+    font-size: 0.9rem;
+  }
+  .ul__expense {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    gap: 0;
+  }
+  .ul__expense li {
+    font-size: 0.9rem;
+  }
+  .ul__total {
+    margin-top: auto;
+    margin-bottom: auto;
+    gap: 5px;
+  }
+  .ul__total li {
+    font-size: 0.9rem;
+  }
+  .breakdown-text {
+    font-size: 1.2rem;
   }
 }
 
