@@ -469,6 +469,12 @@ body {
   .add-field {
     width: 40vw;
   }
+  .income-wrap {
+    width: 40vw;
+  }
+  .expense-wrap {
+    width: 40vw;
+  }
   #income-text {
     width: 30vw;
   }
