@@ -488,31 +488,31 @@ body {
   }
   #description-income {
     padding-left: 5px;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
   #amount-income {
     padding-left: 5px;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
   #description-income::placeholder {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
   #amount-income::placeholder {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
   #description-expense {
     padding-left: 5px;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
   #amount-expense {
     padding-left: 5px;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
   #description-expense::placeholder {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
   #amount-expense::placeholder {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
   }
 }
 
