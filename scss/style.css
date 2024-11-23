@@ -17,7 +17,12 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #272757;
-  height: 4vw;
+  height: 8vh;
+  gap: 5px;
+}
+
+.main__header img {
+  height: 6vh;
 }
 
 .logo {
@@ -401,6 +406,10 @@ body {
 @media screen and (max-width: 799px) {
   .main__header {
     height: 6vh;
+    gap: 5px;
+  }
+  .main__header img {
+    height: 5vh;
   }
   .logo {
     font-size: 2rem;
@@ -526,6 +535,10 @@ body {
 @media screen and (min-width: 799px) and (max-width: 1399px) {
   .main__header {
     height: 8vh;
+    gap: 5px;
+  }
+  .main__header img {
+    height: 6vh;
   }
   .logo {
     font-size: 2.25rem;
