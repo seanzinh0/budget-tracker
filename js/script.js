@@ -19,7 +19,6 @@ class Budget {
     addExpense(expenseObj) {
         this.expense.push(expenseObj);
         this.updateTotalBudget();
-        console.log(this.expense);
     }
 
     getExpense() {
@@ -62,7 +61,6 @@ function deleteIncomeInput(e) {
     incomeDiv.remove();
     budget.income = budget.income.filter(item => !(item.amount === amount && item.description === description));
     budget.updateTotalBudget();
-    console.log(budget.income);
     updateTotalsBreakdown();
     updateIncomeUI();
     createDonutChart();
@@ -95,7 +93,6 @@ addIncome.addEventListener("click", () => {
     const incomeObj = {amount: numAmount, description: description};
     budget.addIncome(incomeObj);
     budget.updateTotalBudget();
-    console.log(budget.getIncome());
     updateTotalsBreakdown();
     updateIncomeUI();
     createDonutChart();
@@ -108,7 +105,6 @@ function deleteExpenseInput(e) {
     expenseDiv.remove();
     budget.expense = budget.expense.filter(item => !(item.amount === amount && item.description === description));
     budget.updateTotalBudget();
-    console.log(budget.expense);
     updateTotalsBreakdown();
     updateExpenseUI();
     createDonutChart();
@@ -141,9 +137,6 @@ addExpense.addEventListener("click", () => {
     const expenseObj = {amount: numAmount, description: description};
     budget.addExpense(expenseObj);
     budget.updateTotalBudget();
-    console.log(budget.getExpense());
-    console.log(budget.getTotalExpense());
-    console.log(budget.getTotalBudget());
     updateTotalsBreakdown();
     updateExpenseUI();
     createDonutChart();
