@@ -65,13 +65,12 @@ const budget = new Budget();
 function deleteIncomeInput(e) {
     //find closest income div
     const incomeDiv = e.closest(".income-input");
-    //get amount and description from input
-    const amount = Number(incomeDiv.querySelector('input').value.replace('$', ''));
-    const description = incomeDiv.querySelector('label').innerText;
+    //get id from input
+    const incomeID = Number(incomeDiv.dataset.id);
     //remove income div from dom
     incomeDiv.remove();
-    //filter out income from income array by checking what items don't match the amount and description of the income
-    budget.income = budget.income.filter(item => !(item.amount === amount && item.description === description));
+    //filter out income from income array by checking what items don't match the income ID
+    budget.income = budget.income.filter(item => !(item.id === incomeID));
     //update total budget after deletion
     budget.updateTotalBudget();
     //update totals in UI
@@ -79,6 +78,10 @@ function deleteIncomeInput(e) {
     updateIncomeUI();
     createDonutChart();
 }
+
+let incomeCounter = 0;
+let expenseCounter = 0;
+
 //function that adds income input
 function addIncomeInput() {
     //get description and amount
@@ -98,7 +101,7 @@ function addIncomeInput() {
     }
     //create income input element
     result =
-        `<div class="income-input">
+        `<div class="income-input" data-id="${incomeCounter}">
             <label for="income-text">${description}</label>
             <div class="income-wrap">
             <input id="income-text" type="text" readonly value="$${numAmount.toFixed(2)}">
@@ -111,7 +114,7 @@ function addIncomeInput() {
     document.getElementById("description-income").value = "";
     document.getElementById("amount-income").value = "";
     //create income obj that uses numAmount and description
-    const incomeObj = {amount: numAmount, description: description};
+    const incomeObj = {amount: numAmount, description: description, id: incomeCounter++};
     budget.addIncome(incomeObj);
     //update total budget after adding income
     budget.updateTotalBudget();
@@ -132,13 +135,12 @@ document.getElementById("amount-income").addEventListener("keypress", (e) => {
 function deleteExpenseInput(e) {
     //get closest expense div
     const expenseDiv = e.closest(".expense-input");
-    //get amount and description from expense div
-    const amount = Number(expenseDiv.querySelector('input').value.replace('$', ''));
-    const description = expenseDiv.querySelector('label').innerText;
+    //get id from expense
+    const expenseID = Number(expenseDiv.dataset.id);
     //remove expense div from dom
     expenseDiv.remove();
-    //filter out expense from expense array by checking what items that don't match the amount and description of the input
-    budget.expense = budget.expense.filter(item => !(item.amount === amount && item.description === description));
+    //filter out expense from expense array by checking what items that don't match ID of the expense
+    budget.expense = budget.expense.filter(item => !(item.id === expenseID));
     //update total budget
     budget.updateTotalBudget();
     //update UI
@@ -165,7 +167,7 @@ function addExpenseInput() {
     }
     //new expense element
     result =
-        `<div class="expense-input">
+        `<div class="expense-input" data-id="${expenseCounter}">
                 <label for="expense-text">${description}</label>
                 <div class="expense-wrap">
                    <input id="expense-text" type="text" readonly value="$${numAmount.toFixed(2)}">
@@ -178,7 +180,7 @@ function addExpenseInput() {
     document.getElementById("description-expense").value = "";
     document.getElementById("amount-expense").value = "";
     //create expenseObj that uses numAmount and description and adds to expense array
-    const expenseObj = {amount: numAmount, description: description};
+    const expenseObj = {amount: numAmount, description: description, id: expenseCounter++};
     budget.addExpense(expenseObj);
     //update total budget
     budget.updateTotalBudget();
