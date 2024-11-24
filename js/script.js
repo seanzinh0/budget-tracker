@@ -66,7 +66,7 @@ function deleteIncomeInput(e) {
     createDonutChart();
 }
 
-addIncome.addEventListener("click", () => {
+function addIncomeInput() {
     let description = document.getElementById("description-income").value;
     let amount = document.getElementById("amount-income").value;
     let result = "";
@@ -96,6 +96,13 @@ addIncome.addEventListener("click", () => {
     updateTotalsBreakdown();
     updateIncomeUI();
     createDonutChart();
+}
+
+addIncome.addEventListener("click", addIncomeInput);
+document.getElementById("amount-income").addEventListener("keypress", (e) => {
+    if(e.key === "Enter") {
+        addIncomeInput();
+    }
 });
 
 function deleteExpenseInput(e) {
@@ -110,7 +117,7 @@ function deleteExpenseInput(e) {
     createDonutChart();
 }
 
-addExpense.addEventListener("click", () => {
+function addExpenseInput() {
     let description = document.getElementById("description-expense").value;
     let amount = document.getElementById("amount-expense").value;
     let result = "";
@@ -140,7 +147,14 @@ addExpense.addEventListener("click", () => {
     updateTotalsBreakdown();
     updateExpenseUI();
     createDonutChart();
-});
+}
+
+addExpense.addEventListener("click", addExpenseInput);
+document.getElementById("amount-expense").addEventListener("keypress", (e) => {
+    if(e.key === "Enter") {
+        addExpenseInput();
+    }
+})
 
 function updateTotalsBreakdown() {
     const totalIncome = budget.getTotalIncome();
