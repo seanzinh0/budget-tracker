@@ -274,7 +274,8 @@ body {
 
 #income__grid-pos {
   grid-row: 4;
-  height: 30vh;
+  min-height: 30vh;
+  height: auto;
   width: 13vw;
   background-color: $accent-color;
   margin-top: 10px;
@@ -285,7 +286,8 @@ body {
 
 #expense__grid-pos {
   grid-row: 4;
-  height: 30vh;
+  min-height: 30vh;
+  height: auto;
   width: 13vw;
   background-color: $accent-color;
   margin-top: 10px;
@@ -296,7 +298,7 @@ body {
 
 #total__grid-pos {
   grid-row: 4;
-  height: 30vh;
+  height: 135px;
   width: 13vw;
   background-color: $accent-color;
   margin-top: 10px;
@@ -473,12 +475,14 @@ body {
   }
 
   #income__grid-pos {
+    min-height: 0;
     height: auto;
     width: 80vw;
     margin: auto;
   }
 
   #expense__grid-pos {
+    min-height: 0;
     height: auto;
     width: 80vw;
     margin: auto
@@ -699,12 +703,14 @@ body {
   }
 
   #income__grid-pos {
+    min-height: 0;
     height: auto;
     width: 40vw;
     margin: auto;
   }
 
   #expense__grid-pos {
+    min-height: 0;
     height: auto;
     width: 40vw;
     margin: auto
