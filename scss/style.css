@@ -536,7 +536,7 @@ body {
     margin-bottom: 20px;
   }
 }
-@media screen and (min-width: 799px) and (max-width: 1399px) {
+@media screen and (min-width: 799px) and (max-width: 1439px) {
   .main__header {
     height: 8vh;
     gap: 5px;
