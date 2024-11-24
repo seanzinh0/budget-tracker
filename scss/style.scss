@@ -282,6 +282,8 @@ body {
   border-radius: 8px;
   display: flex;
   justify-content: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 #expense__grid-pos {
@@ -294,16 +296,20 @@ body {
   border-radius: 8px;
   display: flex;
   justify-content: center;
+  padding: 15px;
+  padding-bottom: 15px;
 }
 
 #total__grid-pos {
   grid-row: 4;
-  height: 135px;
+  height: auto;
   width: 13vw;
   background-color: $accent-color;
   margin-top: 10px;
   border-radius: 8px;
   display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .flex__wrapper-ul {
@@ -385,7 +391,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 20px;
   margin-left: 15px;
 }
 
@@ -399,7 +404,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-top: 20px;
 }
 
 .ul__income li {
@@ -411,7 +415,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-top: 20px;
 }
 
 .ul__expense li {
@@ -479,36 +482,44 @@ body {
     height: auto;
     width: 80vw;
     margin: auto;
+    padding: 0;
   }
 
   #expense__grid-pos {
     min-height: 0;
     height: auto;
     width: 80vw;
-    margin: auto
+    margin: auto;
+    padding: 0;
   }
 
   #total__grid-pos {
-    height: 100px;
+    height: auto;
     width: 80vw;
-    margin: auto
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .ul__income {
+    gap: 0;
+  }
+
+  .ul__income li {
     margin-top: 5px;
     margin-bottom: 5px;
-    gap: 0;
   }
 
   .ul__expense {
-    margin-top: 5px;
-    margin-bottom: 5px;
     gap: 0;
   }
 
+  .ul__income li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
   .ul__total {
-    margin-top: auto;
-    margin-bottom: auto;
     gap: 5px;
   }
 
@@ -707,44 +718,46 @@ body {
     height: auto;
     width: 40vw;
     margin: auto;
+    padding: 0;
   }
 
   #expense__grid-pos {
     min-height: 0;
     height: auto;
     width: 40vw;
-    margin: auto
+    margin: auto;
+    padding: 0;
   }
 
   #total__grid-pos {
-    height: 80px;
+    height: auto;
     width: 40vw;
-    margin: auto
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .ul__income {
-    margin-top: 5px;
-    margin-bottom: 5px;
     gap: 0;
   }
 
   .ul__income li {
     font-size: 0.9rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .ul__expense {
-    margin-top: 5px;
-    margin-bottom: 5px;
     gap: 0;
   }
 
   .ul__expense li {
     font-size: 0.9rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .ul__total {
-    margin-top: auto;
-    margin-bottom: auto;
     gap: 5px;
   }
 
