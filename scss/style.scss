@@ -9,7 +9,7 @@ $text-white: #ffffff;
 $card-background: #ffffff;
 
 @mixin gradient($color1, $color2) {
-  background: radial-gradient($color1, $color2);
+  background: linear-gradient($color1, $color2);
 }
 
 * {
@@ -20,7 +20,7 @@ $card-background: #ffffff;
 }
 
 body {
-  @include gradient($background-color-light, $background-color-dark);
+  @include gradient($background-color-dark, $background-color-light);
   background-repeat: no-repeat;
   min-height: 100vh;
   height: 100%;

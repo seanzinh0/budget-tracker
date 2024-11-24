@@ -6,7 +6,7 @@
 }
 
 body {
-  background: radial-gradient(#8686AC, #505081);
+  background: linear-gradient(#505081, #8686AC);
   background-repeat: no-repeat;
   min-height: 100vh;
   height: 100%;
